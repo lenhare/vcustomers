@@ -1,6 +1,6 @@
 # vCustomers
 
-> Simple customer manager frontend to be used with the [SlimPHP RESTful API](https://github.com/bradtraversy/slimapp)
+> Simple pacient manager frontend to be used with local JSON Server
 
 ## Installation
 
@@ -13,5 +13,9 @@ npm run dev
 
 # build for production with minification
 npm run build
+
+# start the json server
+json-server --watch db.json
+
 ```
 
