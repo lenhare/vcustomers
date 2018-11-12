@@ -1,13 +1,13 @@
 <template>
   <div class="add container">
     <Alert v-if="alert" v-bind:message="alert" />
-    <h1 class="page-header">Add Customer</h1>
+    <h1 class="page-header">Adicionar Paciente</h1>
     <form v-on:submit="addCustomer">
         <div class="well">
             <h4>Informações do paciente</h4>
             <div class="form-group">
                 <label>Nome</label>
-                <input type="text" class="form-control" placeholder="Name" v-model="customer.name">
+                <input type="text" class="form-control" placeholder="Nome" v-model="customer.name">
             </div>
             <div class="form-group">
                 <label>Sobrenome</label>
@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label>Telefone</label>
-                <input type="text" class="form-control" placeholder="Phone" v-model="customer.phone">
+                <input type="text" class="form-control" placeholder="Telefone" v-model="customer.phone">
             </div>
         </div>
 

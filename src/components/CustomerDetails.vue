@@ -1,7 +1,7 @@
 <template>
   <div class="details container">
     <router-link to="/">Voltar</router-link>
-    <h1 class="page-header">{{customer.name}}
+    <h1 class="page-header">{{customer.name}} {{customer.lastname}}
         <span class="pull-right">
             <router-link class="btn btn-primary" v-bind:to="'/edit/'+customer.id">Editar</router-link>
             <button class="btn btn-danger" v-on:click="deleteCustomer(customer.id)">Deletar</button>
