@@ -1,10 +1,10 @@
 <template>
   <div class="details container">
-    <router-link to="/">Back</router-link>
+    <router-link to="/">Voltar</router-link>
     <h1 class="page-header">{{customer.name}}
         <span class="pull-right">
-            <router-link class="btn btn-primary" v-bind:to="'/edit/'+customer.id">Edit</router-link>
-            <button class="btn btn-danger" v-on:click="deleteCustomer(customer.id)">Delete</button>
+            <router-link class="btn btn-primary" v-bind:to="'/edit/'+customer.id">Editar</router-link>
+            <button class="btn btn-danger" v-on:click="deleteCustomer(customer.id)">Deletar</button>
             </span>
     </h1>
     <ul class="list-group">
@@ -13,7 +13,7 @@
         </ul>
 
         <ul class="list-group">
-            <li class="list-group-item"> {{customer.website}}</li>
+            <li class="list-group-item"> {{customer.address}} </li>
         </ul>
   </div>
 </template>
@@ -28,19 +28,20 @@ export default {
   },
   methods:{
       fetchCustomer(id){
-          this.$http.get('https://jsonplaceholder.typicode.com/users/'+id)
+          this.$http.get('http://localhost:3000/users/'+id)
           .then(function(response){
             this.customer = response.body;
           });
       },
       deleteCustomer(id){
-          this.$http.delete('https://jsonplaceholder.typicode.com/users/'+id)
+          this.$http.delete('http://localhost:3000/users/'+id)
           .then(function(response){
-            this.$router.push({path: '/', query: {alert: 'Customer Deleted'}});
+            this.$router.push({path: '/', query: {alert: 'Paciente excluído'}});
           });
       }
   },
   created: function(){
+
       this.fetchCustomer(this.$route.params.id);
   }
 }

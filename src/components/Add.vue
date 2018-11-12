@@ -4,36 +4,36 @@
     <h1 class="page-header">Add Customer</h1>
     <form v-on:submit="addCustomer">
         <div class="well">
-            <h4>Customer Info</h4>
+            <h4>Informações do paciente</h4>
             <div class="form-group">
-                <label>Name</label>
+                <label>Nome</label>
                 <input type="text" class="form-control" placeholder="Name" v-model="customer.name">
             </div>
             <div class="form-group">
-                <label>Username</label>
-                <input type="text" class="form-control" placeholder="Username" v-model="customer.username">
+                <label>Sobrenome</label>
+                <input type="text" class="form-control" placeholder="Sobrenome" v-model="customer.lastname">
             </div>
         </div>
         <div class="well">
-            <h4>Customer Contact</h4>
+            <h4>Contato do paciente</h4>
             <div class="form-group">
                 <label>Email</label>
                 <input type="text" class="form-control" placeholder="Email" v-model="customer.email">
             </div>
             <div class="form-group">
-                <label>Phone</label>
+                <label>Telefone</label>
                 <input type="text" class="form-control" placeholder="Phone" v-model="customer.phone">
             </div>
         </div>
 
         <div class="well">
-            <h4>Customer Location</h4>
+            <h4>Endereço do paciente</h4>
             <div class="form-group">
-                <label>Website</label>
-                <input type="text" class="form-control" placeholder="Website" v-model="customer.website">
+                <label>Endereço</label>
+                <input type="text" class="form-control" placeholder="Endereço" v-model="customer.address">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
   </div>
 </template>
@@ -50,20 +50,20 @@
     },
     methods: {
         addCustomer(e){
-            if(!this.customer.name || !this.customer.username || !this.customer.email){
-                this.alert = 'Please fill in all required fields';
+            if(!this.customer.name || !this.customer.lastname || !this.customer.email){
+                this.alert = 'Por favor preencha todos os campos requeridos';
             } else {
                 let newCustomer = {
                     name: this.customer.name,
-                    username: this.customer.username,
+                    lastname: this.customer.lastname,
                     email: this.customer.email,
                     phone: this.customer.phone,
-                    website: this.customer.website
+                    address: this.customer.address
                 }
 
-                this.$http.post('https://jsonplaceholder.typicode.com/users/add', newCustomer)
+                this.$http.post('http://localhost:3000/users/', newCustomer)
                     .then(function(response){
-                        this.$router.push({path: '/', query: {alert: 'Customer Added'}});
+                        this.$router.push({path: '/', query: {alert: 'Paciente adicionado'}});
                     });
 
                 e.preventDefault();

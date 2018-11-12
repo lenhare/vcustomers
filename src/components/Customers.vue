@@ -1,14 +1,14 @@
 <template>
   <div class="customers container">
     <Alert v-if="alert" v-bind:message="alert" />
-    <h1 class="page-header">Manage Customers</h1>
-    <input class="form-control" placeholder="Enter Last Name" v-model="filterInput">
+    <h1 class="page-header">Gerenciar pacientes</h1>
+    <input class="form-control" placeholder="Digite o nome do paciente" v-model="filterInput">
     <br />
     <table class="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Username</th>
+            <th>Sobrenome</th>
             <th>Email</th>
             <th></th>
           </tr>
@@ -16,7 +16,7 @@
         <tbody>
           <tr v-for="customer in filterBy(customers, filterInput)">
             <td>{{customer.name}}</td>
-            <td>{{customer.username}}</td>
+            <td>{{customer.lastname}}</td>
             <td>{{customer.email}}</td>
             <td><router-link class="btn btn-default" v-bind:to="'/customer/'+customer.id">View</router-link></td>
           </tr>
@@ -38,7 +38,7 @@
     },
     methods: {
       fetchCustomers(){
-        this.$http.get('https://jsonplaceholder.typicode.com/users/')
+        this.$http.get('http://localhost:3000/users/')
           .then(function(response){
             this.customers = response.body;
           });

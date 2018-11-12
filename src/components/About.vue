@@ -1,7 +1,7 @@
 <template>
   <div class="about container">
-    <h1 class="page-header">About</h1>
-    <p>This is a customer manager app built with the Vue.js framework</p>
+    <h1 class="page-header">Sobre</h1>
+    <p>Esse é um projeto teste de CRUD em Vue.JS</p>
     <p>Version 1.0.0</p>
   </div>
 </template>
@@ -17,7 +17,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>

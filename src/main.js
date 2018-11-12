@@ -39,15 +39,15 @@ new Vue({
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">vCustomers</a>
+          <a class="navbar-brand" href="#">Pacientes</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/about">About</router-link></li>
+            <li><router-link to="/">Início</router-link></li>
+            <li><router-link to="/about">Sobre</router-link></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><router-link to="/add">Add Customer</router-link></li>
+            <li><router-link to="/add">Adicionar Paciente</router-link></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
