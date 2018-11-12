@@ -1,7 +1,7 @@
 <template>
   <div class="details container">
     <router-link to="/">Back</router-link>
-    <h1 class="page-header">{{customer.first_name}} {{customer.last_name}}
+    <h1 class="page-header">{{customer.name}}
         <span class="pull-right">
             <router-link class="btn btn-primary" v-bind:to="'/edit/'+customer.id">Edit</router-link>
             <button class="btn btn-danger" v-on:click="deleteCustomer(customer.id)">Delete</button>
@@ -13,9 +13,7 @@
         </ul>
 
         <ul class="list-group">
-            <li class="list-group-item"> {{customer.address}}</li>
-            <li class="list-group-item">{{customer.city}}</li>
-            <li class="list-group-item">{{customer.state}}</li>
+            <li class="list-group-item"> {{customer.website}}</li>
         </ul>
   </div>
 </template>
@@ -30,13 +28,13 @@ export default {
   },
   methods:{
       fetchCustomer(id){
-          this.$http.get('http://slimapp/api/customer/'+id)
+          this.$http.get('https://jsonplaceholder.typicode.com/users/'+id)
           .then(function(response){
             this.customer = response.body;
           });
       },
       deleteCustomer(id){
-          this.$http.delete('http://slimapp/api/customer/delete/'+id)
+          this.$http.delete('https://jsonplaceholder.typicode.com/users/'+id)
           .then(function(response){
             this.$router.push({path: '/', query: {alert: 'Customer Deleted'}});
           });

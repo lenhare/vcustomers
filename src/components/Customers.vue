@@ -7,16 +7,16 @@
     <table class="table table-striped">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
+            <th>Username</th>
             <th>Email</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="customer in filterBy(customers, filterInput)">
-            <td>{{customer.first_name}}</td>
-            <td>{{customer.last_name}}</td>
+            <td>{{customer.name}}</td>
+            <td>{{customer.username}}</td>
             <td>{{customer.email}}</td>
             <td><router-link class="btn btn-default" v-bind:to="'/customer/'+customer.id">View</router-link></td>
           </tr>
@@ -38,7 +38,7 @@
     },
     methods: {
       fetchCustomers(){
-        this.$http.get('http://slimapp/api/customers')
+        this.$http.get('https://jsonplaceholder.typicode.com/users/')
           .then(function(response){
             this.customers = response.body;
           });
@@ -46,7 +46,7 @@
       filterBy(list, value){
         value = value.charAt(0).toUpperCase() + value.slice(1);
         return list.filter(function(customer){
-          return customer.last_name.indexOf(value) > -1;
+          return customer.name.indexOf(value) > -1;
         });
       }
     },
